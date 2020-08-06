@@ -108,11 +108,48 @@ p {
 
 .slider .sections section {
     float: left;
-    width: 30%;
+    width: calc(4*((100%/3)/5));
+    height: 500px;
+    margin: 0px calc((((100%/3)/5) - 6px)/2);
+    color: aqua;
 }
 
 .sections {
-    width: calc(80%*3);
+    width: calc(100%*3);
+    animation: slider 30s infinite;
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+@keyframes slider {
+    0% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(calc((-100%/3)));
+    }
+    66% {
+        transform: translateX(calc(((-100%/3)*2)));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#child-menu {
+    background: center no-repeat url(../img/enfant.jpg);
+}
+
+#view-on-the-sea {
+    background: center no-repeat url(../img/restaurant-terrasse-vue-mer.jpg);
+}
+
+#local-product {
+    background: center no-repeat url(../img/Moules_bateaux.jpg);
+    background-size: cover;
 }
 
 svg {
