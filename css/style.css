@@ -1,0 +1,120 @@
+html {
+    background: no-repeat url("../img/mer-background.jpg") fixed;   
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+    margin: 30px auto;
+    max-width: 900px;
+    border: 5px solid aqua;
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: white;
+}
+
+header div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: no-repeat url("../img/plat header.jpg") center;
+    background-size: 900px;
+}
+
+header div img {
+    width: 150px;
+}
+
+header div h1 {
+    font-weight: 700;
+    font-size: 50px;
+    color: aqua
+}
+
+ul {
+    margin: 0px;
+    padding: 10px 0px;
+    width: 100%;
+    background: aqua;
+}
+
+ul li {
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    color: black;
+}
+
+nav ul li a:hover {
+    background-color: blue;
+}
+
+nav ul li ul {
+    display: none;
+    background: #0ad0ff;
+    margin-top: 10px;
+    width: auto;
+}
+
+nav ul li:hover ul {
+    display: block;
+    position: absolute;
+}
+
+section {
+    border: 3px solid aqua;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px auto;
+    width: 80%;
+}
+
+section h3 {
+    margin-bottom: 0px;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: aqua;
+    font-size: 25px;
+    color: black;
+    padding: 5px;
+    text-decoration: underline;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+p {
+    background-color: aqua;
+    padding: 0px 5px;
+}
+
+#menu_of_the_day {
+    background: no-repeat url(../img/cloche.jpg) center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.slider .sections section {
+    float: left;
+    width: 30%;
+}
+
+.sections {
+    width: calc(80%*3);
+}
+
+svg {
+    display:block;
+}
