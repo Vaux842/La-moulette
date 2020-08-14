@@ -30,23 +30,29 @@ header div img {
 header div h1 {
     font-weight: 700;
     font-size: 50px;
-    color: aqua
+    color: aqua;
 }
 
-ul {
+header nav ul {
     margin: 0px;
     padding: 10px 0px;
     width: 100%;
     background: aqua;
 }
 
-ul li {
-    display: inline-block;
+a {
+    text-decoration: none;
+}
+
+li {
     list-style: none;
 }
 
+nav li {
+    display: inline-block;
+}
+
 nav ul li a {
-    text-decoration: none;
     width: 100%;
     padding: 10px;
     color: black;
@@ -91,6 +97,7 @@ section h3 {
 
 h2 {
     text-decoration: underline;
+    text-align: center;
 }
 
 p {
@@ -152,6 +159,166 @@ p {
     background-size: cover;
 }
 
+button.edit_button, button {
+    background-color: #0ad0ff;
+    border: 3px solid aqua;
+    border-radius: 10px;
+}
+
+div#recipe_pop_up {
+    width: 90%;
+    height: 80%;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid aqua;
+    position: fixed;
+    padding-bottom: 10px;
+    top: 10%;
+    left: 5%;
+    background-color: #0ad0ff;
+    box-shadow: -1px -1px 2px 2px;
+    z-index: 1;
+	overflow-y: auto;
+}
+
+form {
+	width: 30%;
+}
+
+#cancel_button {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+#sup {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+#submit_button {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+div#recipe_pop_up div button {
+	margin: 10px 0px;
+	padding: 10px 20px;
+}
+
+#edit-pop-up-command button {
+	width: calc(33% - 6px);
+}
+
+#edit-pop-up-command button#submit_button {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+#add-pop-up-command button {
+	width: calc(50% - 6px);
+}
+
+#add-pop-up-command button#submit_button {
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#image_preview {
+    width: calc(100% - 6px);
+    border: 3px solid black;
+	border-bottom: 0px;
+    margin-bottom: 0;
+    display: block;
+}
+
+.recipe_edit {
+    width: 80%;
+    margin: 5px auto;
+}
+
+div.recipe_list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid aqua;
+    margin-top: 10px;
+	max-height: calc(99px + (5*120px));
+	overflow-y: auto;
+}
+
+div.recipe_list ul {
+    width: 100%;
+    padding: 0px;
+}
+
+div.recipe_list ul li {
+    height: 100px;
+	padding: 10px 0;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+div.recipe_list img {
+	max-width: 25%;
+	max-height: 100%;
+	border: 1px solid aqua;
+}
+
+div.recipe_list h3 {
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+button.edit_button {
+    margin-left: auto;
+    margin-right: 5px;
+    padding: 5px;
+    border: 3px;
+    color: black;
+}
+
+button.add_button {
+    width: 100%;
+    padding: 10px 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+button:focus {
+    outline: none;
+}
+
+div#recipe_pop_up button {
+    border-color: black;
+}
+
+button#browse-file-button {
+    display: block;
+    width: 100%;
+    padding: 5px 0px;
+    margin-bottom: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+button:active {
+    background-color: blue;
+}
+
 svg {
     display:block;
+}
+
+#admin_title {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    color: aqua;
+    text-decoration: overline underline;
+}
+#p {
+    height: 500px;
 }

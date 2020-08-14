@@ -1,0 +1,4 @@
+AuthName "Reserver a l'administrateur"
+AuthType Basic
+AuthUserFile "C:/xampp/htdocs/La-moulette/admin/.htpasswd"
+Require valid-user

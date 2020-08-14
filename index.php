@@ -5,7 +5,7 @@
         <title>La moulette</title>
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
-        <link rel="icon" href="img/logo_lamoulette.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
@@ -14,13 +14,13 @@
         <nav>
             <ul>
                 <li><a href="#">Acceuil</a></li>
-                <li><a href="">Menu</a>
+                <li><a href="Menu.html">Menu</a>
                     <ul>
                         <li><a href="">Entrée</a></li>
                         <li><a href="">Plat</a></li>
                         <li><a href="">Fromage</a></li>
                         <li><a href="">Desert</a></li>
-                        <li><a href="">Boison</a></li>
+                        <li><a href="">Boisson</a></li>
                     </ul>
                 </li>
                 <li><a href="">notre restaurant</a></li>
@@ -29,6 +29,7 @@
             </ul>
         </nav>
         </header>
+        <h1><?= "lilian" ?></h1>
         <section id="menu_of_the_day">
             <h2>Menu du jour</h2>
             <h3>Entrée</h3>
