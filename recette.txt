@@ -49,28 +49,28 @@
 - éclair
 
 --------------Boison--------------
-
+=Bière=
 - LEFFE blonde 4,30€
-
+=Bière sans alcool=
 - tourtel twist(citron vert, cerise, citron , framboise) 4€
-
+=Vin blanc=
 - Chardonnay 16€
 - Coteau du Layon 29€
-
+=Vin rosé=
 - La provence  29€
-
+=Vin rouge=
 - Bordeaux 15€
 - Côtes du Rhône 17€
-
+=Vin pichet=
 - Coteaux de Peyriac 10€
-
+=Cidre=
 - cidre kerisac 3,00€
-
+=Champagne=
 - champagne(brut) 10,50€
-
+=Autre alcool=
 - martini 7,69€
 - pastis 10€
-
+=soda et autre boisson sans alcool=
 - pepsi 5€
 - Schweppes 5€
 - Perrier 3€
@@ -83,3 +83,105 @@ plat:
 - pizza quatre fromage
 - burger frite
 - panini jambon fromage
+
+
+				<h3>Bière</h3>
+				<ul>
+					<?php while($biere = $b_B->fetch()) { ?>
+					<li>
+						<img src="../<?= $biere["image"]; ?>">
+						<h3><?= $biere["name"]; ?> - <?= $biere["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $biere["name"]?>', '<?= $biere["image"] ?>', '<?= $biere["price"] ?>', '<?= $biere["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Bière sans alcool</h3>
+				<ul>
+					<?php while($biere_sans_alcool = $b_BSA->fetch()) { ?>
+					<li>
+						<img src="../<?= $biere_sans_alcool["image"]; ?>">
+						<h3><?= $biere_sans_alcool["name"]; ?> - <?= $biere_sans_alcool["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $biere_sans_alcool["name"]?>', '<?= $biere_sans_alcool["image"] ?>', '<?= $biere_sans_alcool["price"] ?>', '<?= $biere_sans_alcool["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Vin blanc</h3>
+				<ul>
+					<?php while($vin_blanc = $b_VB->fetch()) { ?>
+					<li>
+						<img src="../<?= $vin_blanc["image"]; ?>">
+						<h3><?= $vin_blanc["name"]; ?> - <?= $vin_blanc["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $vin_blanc["name"]?>', '<?= $vin_blanc["image"] ?>', '<?= $vin_blanc["price"] ?>', '<?= $vin_blanc["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Vin rosé</h3>
+				<ul>
+					<?php while($vin_rose = $b_VRos->fetch()) { ?>
+					<li>
+						<img src="../<?= $vin_rose["image"]; ?>">
+						<h3><?= $vin_rose["name"]; ?> - <?= $vin_rose["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $vin_rose["name"]?>', '<?= $vin_rose["image"] ?>', '<?= $vin_rose["price"] ?>', '<?= $vin_rose["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Vin rouge</h3>
+				<ul>
+					<?php while($vin_rouge = $b_VRou->fetch()) { ?>
+					<li>
+						<img src="../<?= $vin_rouge["image"]; ?>">
+						<h3><?= $vin_rouge["name"]; ?> - <?= $vin_rouge["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $vin_rouge["name"]?>', '<?= $vin_rouge["image"] ?>', '<?= $vin_rouge["price"] ?>', '<?= $vin_rouge["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Vin pichet</h3>
+				<ul>
+					<?php while($vin_pichet = $b_VP->fetch()) { ?>
+					<li>
+						<img src="../<?= $vin_pichet["image"]; ?>">
+						<h3><?= $vin_pichet["name"]; ?> - <?= $vin_pichet["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $vin_pichet["name"]?>', '<?= $vin_pichet["image"] ?>', '<?= $vin_pichet["price"] ?>', '<?= $vin_pichet["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Cidre</h3>
+				<ul>
+					<?php while($cidre = $b_Ci->fetch()) { ?>
+					<li>
+						<img src="../<?= $cidre["image"]; ?>">
+						<h3><?= $cidre["name"]; ?> - <?= $cidre["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $cidre["name"]?>', '<?= $cidre["image"] ?>', '<?= $cidre["price"] ?>', '<?= $cidre["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Champagne</h3>
+				<ul>
+					<?php while($champagne = $b_Ch->fetch()) { ?>
+					<li>
+						<img src="../<?= $champagne["image"]; ?>">
+						<h3><?= $champagne["name"]; ?> - <?= $champagne["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $champagne["name"]?>', '<?= $champagne["image"] ?>', '<?= $champagne["price"] ?>', '<?= $champagne["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Autre alcool</h3>
+				<ul>
+					<?php while($autre_alcool = $b_AA->fetch()) { ?>
+					<li>
+						<img src="../<?= $autre_alcool["image"]; ?>">
+						<h3><?= $autre_alcool["name"]; ?> - <?= $autre_alcool["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $autre_alcool["name"]?>', '<?= $autre_alcool["image"] ?>', '<?= $autre_alcool["price"] ?>', '<?= $autre_alcool["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>
+				<h3>Soda et autre boisson sans alcool</h3>
+				<ul>
+					<?php while($sebsa = $b_SEBSA->fetch()) { ?>
+					<li>
+						<img src="../<?= $sebsa["image"]; ?>">
+						<h3><?= $sebsa["name"]; ?> - <?= $sebsa["price"] ?>€</h3>
+						<button class="edit_button" onclick="show_edit_recipe_pop_up('boisson', '<?= $sebsa["name"]?>', '<?= $sebsa["image"] ?>', '<?= $sebsa["price"] ?>', '<?= $sebsa["type"] ?>');">Modifier</button>
+					</li>
+					<?php } ?>
+				</ul>

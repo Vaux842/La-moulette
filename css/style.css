@@ -233,12 +233,12 @@ div#recipe_pop_up div button {
     display: block;
 }
 
-.recipe_edit {
+.recipe_edit, .drink_edit {
     width: 80%;
     margin: 5px auto;
 }
 
-div.recipe_list {
+div.recipe_list, .drink_list {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -248,12 +248,12 @@ div.recipe_list {
 	overflow-y: auto;
 }
 
-div.recipe_list ul {
+div.recipe_list ul, div.drink_list ul {
     width: 100%;
     padding: 0px;
 }
 
-div.recipe_list ul li {
+div.recipe_list ul li, div.drink_list ul li {
     height: 100px;
 	padding: 10px 0;
     padding-left: 5px;
@@ -261,13 +261,13 @@ div.recipe_list ul li {
     align-items: center;
 }
 
-div.recipe_list img {
+div.recipe_list img, div.drink_list img {
 	max-width: 25%;
 	max-height: 100%;
 	border: 1px solid aqua;
 }
 
-div.recipe_list h3 {
+div.recipe_list h3, div.drink_list h3 {
     font-size: 20px;
     padding-left: 5px;
 }
