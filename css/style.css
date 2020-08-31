@@ -233,12 +233,12 @@ div#recipe_pop_up div button {
     display: block;
 }
 
-.recipe_edit, .drink_edit {
+body > div {
     width: 80%;
     margin: 5px auto;
 }
 
-div.recipe_list, .drink_list {
+div.recipe_list, .drink_list, #menu_of_the_day_edit {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -276,7 +276,6 @@ button.edit_button {
     margin-left: auto;
     margin-right: 5px;
     padding: 5px;
-    border: 3px;
     color: black;
 }
 
@@ -285,10 +284,19 @@ button.add_button {
     padding: 10px 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+	border-top: 0;
+}
+
+#menu_of_the_day_edit {
+	padding-bottom: 10px;
 }
 
 button:focus {
     outline: none;
+}
+
+select, #menu_of_the_day_price {
+	border-color: aqua;
 }
 
 div#recipe_pop_up button {

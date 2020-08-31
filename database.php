@@ -5,4 +5,15 @@ try {
 } catch(PDOException $ex) {
 	echo $ex;
 }
+
+function getRecipes($table) {
+	global $db;
+	return $db->query("SELECT * FROM `" . $table . "`");
+}
+
+function getDrinks($type) {
+	global $db;
+	return $db->query("SELECT * FROM `boisson` where type='" . $type . "'");
+}
+
 ?>

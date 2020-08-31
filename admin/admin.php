@@ -2,22 +2,6 @@
 include "../database.php";
 global $db;
 
-$e = $db->query("SELECT * FROM `entrée`");
-$p = $db->query("SELECT * FROM `plat`");
-$pe = $db->query("SELECT * FROM `plat_enfant`");
-$f = $db->query("SELECT * FROM `fromage`");
-$d = $db->query("SELECT * FROM `dessert`");
-$b_B = $db->query("SELECT * FROM `boisson` where type='B'");
-$b_BSA = $db->query("SELECT * FROM `boisson` where type='BSA'");
-$b_VB = $db->query("SELECT * FROM `boisson` where type='VB'");
-$b_VRos = $db->query("SELECT * FROM `boisson` where type='VRos'");
-$b_VRou = $db->query("SELECT * FROM `boisson` where type='VRou'");
-$b_VP = $db->query("SELECT * FROM `boisson` where type='Vp'");
-$b_Ci = $db->query("SELECT * FROM `boisson` where type='Ci'");
-$b_Ch = $db->query("SELECT * FROM `boisson` where type='Ch'");
-$b_AA = $db->query("SELECT * FROM `boisson` where type='AA'");
-$b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
-
 ?>
 
 <!DOCTYPE html>
@@ -90,6 +74,7 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 					<li><a href="#fromage">Fromage</a></li>
 					<li><a href="#dessert">Dessert</a></li>
 					<li><a href="#boisson">Boisson</a></li>
+					<li><a href="#menu_of_the_day_edit">Menu du jour</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -97,7 +82,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 			<div id="entree" class="recipe_list">
 				<h2>Entrée</h2>
 				<ul>
-					<?php while($entree = $e->fetch()) { ?>
+					<?php
+					$m = getRecipes("entrée");
+					while($entree = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $entree["image"]; ?>">
 						<h3><?= $entree["name"] ?> - <?= $entree["price"] ?>€</h3>
@@ -113,7 +100,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 			<div id="plat" class="recipe_list">
 				<h2>Plat</h2>
 				<ul>
-					<?php while($plat = $p->fetch()) { ?>
+					<?php
+					$m = getRecipes("plat");
+					while($plat = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $plat["image"]; ?>">
 						<h3><?= $plat["name"]; ?> - <?= $plat["price"] ?>€</h3>
@@ -128,7 +117,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 			<div id="plat_enfant" class="recipe_list">
 				<h2>Plat Enfant</h2>
 				<ul>
-					<?php while($enfant = $pe->fetch()) { ?>
+					<?php
+					$m = getRecipes("plat_enfant");
+					while($enfant = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $enfant["image"]; ?>">
 						<h3><?= $enfant["name"]; ?> - <?= $enfant["price"] ?>€</h3>
@@ -143,7 +134,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 			<div id="fromage" class="recipe_list">
 				<h2>Fromage</h2>
 				<ul>
-					<?php while($fromage = $f->fetch()) { ?>
+					<?php
+					$m = getRecipes("fromage");
+					while($fromage = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $fromage["image"]; ?>">
 						<h3><?= $fromage["name"]; ?> - <?= $fromage["price"] ?>€</h3>
@@ -158,7 +151,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 			<div id="dessert" class="recipe_list">
 				<h2>Dessert</h2>
 				<ul>
-					<?php while($dessert = $d->fetch()) { ?>
+					<?php
+					$m = getRecipes("dessert");
+					while($dessert = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $dessert["image"]; ?>">
 						<h3><?= $dessert["name"]; ?> - <?= $dessert["price"] ?>€</h3>
@@ -174,7 +169,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				<h2>Boisson</h2>
 				<h3>Bière</h3>
 				<ul>
-					<?php while($biere = $b_B->fetch()) { ?>
+					<?php
+					$m = getDrinks("B");
+					while($biere = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $biere["image"]; ?>">
 						<h3><?= $biere["name"]; ?> - <?= $biere["price"] ?>€</h3>
@@ -184,7 +181,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Bière sans alcool</h3>
 				<ul>
-					<?php while($biere_sans_alcool = $b_BSA->fetch()) { ?>
+					<?php
+					$m = getDrinks("BSA");
+					while($biere_sans_alcool = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $biere_sans_alcool["image"]; ?>">
 						<h3><?= $biere_sans_alcool["name"]; ?> - <?= $biere_sans_alcool["price"] ?>€</h3>
@@ -194,7 +193,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Vin blanc</h3>
 				<ul>
-					<?php while($vin_blanc = $b_VB->fetch()) { ?>
+					<?php
+					$m = getDrinks("VB");
+					while($vin_blanc = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $vin_blanc["image"]; ?>">
 						<h3><?= $vin_blanc["name"]; ?> - <?= $vin_blanc["price"] ?>€</h3>
@@ -204,7 +205,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Vin rosé</h3>
 				<ul>
-					<?php while($vin_rose = $b_VRos->fetch()) { ?>
+					<?php
+					$m = getDrinks("VRos");
+					while($vin_rose = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $vin_rose["image"]; ?>">
 						<h3><?= $vin_rose["name"]; ?> - <?= $vin_rose["price"] ?>€</h3>
@@ -214,7 +217,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Vin rouge</h3>
 				<ul>
-					<?php while($vin_rouge = $b_VRou->fetch()) { ?>
+					<?php
+					$m = getDrinks("VRou");
+					while($vin_rouge = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $vin_rouge["image"]; ?>">
 						<h3><?= $vin_rouge["name"]; ?> - <?= $vin_rouge["price"] ?>€</h3>
@@ -224,7 +229,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Vin pichet</h3>
 				<ul>
-					<?php while($vin_pichet = $b_VP->fetch()) { ?>
+					<?php
+					$m = getDrinks("VP");
+					while($vin_pichet = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $vin_pichet["image"]; ?>">
 						<h3><?= $vin_pichet["name"]; ?> - <?= $vin_pichet["price"] ?>€</h3>
@@ -234,7 +241,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Cidre</h3>
 				<ul>
-					<?php while($cidre = $b_Ci->fetch()) { ?>
+					<?php
+					$m = getDrinks("Ci");
+					while($cidre = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $cidre["image"]; ?>">
 						<h3><?= $cidre["name"]; ?> - <?= $cidre["price"] ?>€</h3>
@@ -244,7 +253,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Champagne</h3>
 				<ul>
-					<?php while($champagne = $b_Ch->fetch()) { ?>
+					<?php
+					$m = getDrinks("Ch");
+					while($champagne = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $champagne["image"]; ?>">
 						<h3><?= $champagne["name"]; ?> - <?= $champagne["price"] ?>€</h3>
@@ -254,7 +265,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Autre alcool</h3>
 				<ul>
-					<?php while($autre_alcool = $b_AA->fetch()) { ?>
+					<?php
+					$m = getDrinks("AA");
+					while($autre_alcool = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $autre_alcool["image"]; ?>">
 						<h3><?= $autre_alcool["name"]; ?> - <?= $autre_alcool["price"] ?>€</h3>
@@ -264,7 +277,9 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				</ul>
 				<h3>Soda et autre boisson sans alcool</h3>
 				<ul>
-					<?php while($sebsa = $b_SEBSA->fetch()) { ?>
+					<?php
+					$m = getDrinks("SEBSA");
+					while($sebsa = $m->fetch()) { ?>
 					<li>
 						<img src="../<?= $sebsa["image"]; ?>">
 						<h3><?= $sebsa["name"]; ?> - <?= $sebsa["price"] ?>€</h3>
@@ -273,6 +288,118 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 					<?php } ?>
 				</ul>
 			</div><button class="add_button" onclick="show_add_recipe_pop_up('boisson', true);">Ajouter</button>
+		</div>
+
+		<div id="menu_of_the_day_edit">
+			<h2>Menu du jour</h2>
+			<form method="post" action="edit_recipe.php?sect=menu_of_the_day_edit">
+				<?php $motd = getRecipes("menu_of_the_day")->fetch()?>
+				<input type="hidden" name="base_motd_entree" value="<?= $motd["entrée"] ?>">
+				<input type="hidden" name="base_motd_plat" value="<?= $motd["plat"] ?>">
+				<input type="hidden" name="base_motd_dessert" value="<?= $motd["dessert"] ?>">
+				<input type="hidden" name="base_motd_drink" value="<?= $motd["boisson"] ?>">
+				<input type="hidden" name="base_motd_price" value="<?= $motd["price"] ?>">
+				<h3>Entrée</h3>
+				<select id="menu_of_the_day_entree_selecter" name="menu_of_the_day_entree_selecter" >
+					<?php
+	$m = getRecipes("entrée");
+				while($entree = $m->fetch()) { ?>
+					<option value="<?= $entree["name"] ?>"><?= $entree["name"] ?></option>
+					<?php } ?>
+				</select>
+				<h3>Plat</h3>
+				<select id="menu_of_the_day_plat_selecter"
+						name="menu_of_the_day_plat_selecter" >
+					<?php
+					$m = getRecipes("plat");
+					while($plat = $m->fetch()) { ?>
+					<option value="<?= $plat["name"] ?>"><?= $plat["name"] ?></option>
+					<?php } ?>
+				</select>
+				<h3>Dessert</h3>
+				<select id="menu_of_the_day_dessert_selecter" name="menu_of_the_day_dessert_selecter" >
+					<?php
+					$m = getRecipes("dessert");
+					while($dessert = $m->fetch()) { ?>
+					<option value="<?= $dessert["name"] ?>"><?= $dessert["name"] ?></option>
+					<?php } ?>
+				</select>
+				<h3>Boisson</h3>
+				<select id="menu_of_the_day_drink_selecter" name="menu_of_the_day_drink_selecter" >
+					<optgroup label="Bière">
+						<?php
+						$m = getDrinks("B");
+						while($biere = $m->fetch()) { ?>
+						<option value="<?= $biere["name"] ?>"><?= $biere["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Bière sans alcool">
+						<?php
+						$m = getDrinks("BSA");
+						while($biere_sans_alcool = $m->fetch()) { ?>
+						<option value="<?= $biere_sans_alcool["name"] ?>"><?= $biere_sans_alcool["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Vin blanc">
+						<?php
+						$m = getDrinks("VB");
+						while($vin_blanc = $m->fetch()) { ?>
+						<option value="<?= $vin_blanc["name"] ?>"><?= $vin_blanc["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Vin rosé">
+						<?php
+						$m = getDrinks("VRos");
+						while($vin_rose = $m->fetch()) { ?>
+						<option value="<?= $vin_rose["name"] ?>"><?= $vin_rose["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Vin Rouge">
+						<?php
+						$m = getDrinks("VRou");
+						while($vin_rouge = $m->fetch()) { ?>
+						<option value="<?= $vin_rouge["name"] ?>"><?= $vin_rouge["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Vin pichet">
+						<?php
+						$m = getDrinks("VP");
+						while($vin_pichet = $m->fetch()) { ?>
+						<option value="<?= $vin_pichet["name"] ?>"><?= $vin_pichet["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Cidre">
+						<?php
+						$m = getDrinks("Ci");
+						while($cidre = $m->fetch()) { ?>
+						<option value="<?= $cidre["name"] ?>"><?= $cidre["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Champagne">
+						<?php
+						$m = getDrinks("Ch");
+						while($champagne = $m->fetch()) { ?>
+						<option value="<?= $champagne["name"] ?>"><?= $champagne["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Autre alcool">
+						<?php
+						$m = getDrinks("AA");
+						while($autre_alcool = $m->fetch()) { ?>
+						<option value="<?= $autre_alcool["name"] ?>"><?= $autre_alcool["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+					<optgroup label="Soda et autre boisson sans alcool">
+						<?php
+						$m = getDrinks("SEBSA");
+						while($sebsa = $m->fetch()) { ?>
+						<option value="<?= $sebsa["name"] ?>"><?= $sebsa["name"] ?></option>
+						<?php } ?>
+					</optgroup>
+				</select>
+				<h3>Prix</h3>
+				<input type="number" max="100" min="0" step="0.05" id="menu_of_the_day_price" name="menu_of_the_day_price" value="<?= $motd["price"] ?>" >
+			</form>
 		</div>
 
 		<footer>
@@ -309,6 +436,12 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 		var submit_button = document.getElementById("submit_button");
 		var sup_button = document.getElementById("sup");
 
+		var motd_entree_selector = document.getElementById("menu_of_the_day_entree_selecter");
+		var motd_plat_selector = document.getElementById("menu_of_the_day_plat_selecter");
+		var motd_dessert_selector = document.getElementById("menu_of_the_day_dessert_selecter");
+		var motd_drink_selector = document.getElementById("menu_of_the_day_drink_selecter");
+		var motd_price = document.getElementById("menu_of_the_day_price");
+
 		button_choose_image.addEventListener("click", () => {
 			browse_button.click();
 		});
@@ -321,6 +454,43 @@ $b_SEBSA = $db->query("SELECT * FROM `boisson` where type='SEBSA'");
 				};
 				reader.readAsDataURL(browse_button.files[0]);
 			}
+		});
+
+		function getIndex(selector, option) {
+			var options = selector.options;
+			for(var i = 0; i < selector.options.length; i++) {
+				if(options[i].text == option) return options[i].index;
+			}
+			return 0;
+		}
+
+		motd_entree_selector.addEventListener("change", function() {
+			this.form.submit();
+		});
+
+		motd_entree_selector.selectedIndex = getIndex(motd_entree_selector, "<?= $motd["entrée"] ?>");
+
+		motd_plat_selector.addEventListener("change", function() {
+			this.form.submit();
+		});
+
+		motd_plat_selector.selectedIndex = getIndex(motd_plat_selector, "<?= $motd["plat"] ?>");
+
+		motd_dessert_selector.addEventListener("change", function() {
+			console.log(motd_dessert_selector.selectedIndex);
+			this.form.submit();
+		});
+
+		motd_dessert_selector.selectedIndex = getIndex(motd_dessert_selector, "<?= $motd["dessert"] ?>");
+
+		motd_drink_selector.addEventListener("change", function() {
+			this.form.submit();
+		});
+
+		motd_drink_selector.selectedIndex = getIndex(motd_drink_selector, "<?= $motd["boisson"] ?>");
+		
+		motd_price.addEventListener("change", function() {
+			this.form.submit();
 		});
 
 		function show_add_recipe_pop_up(table, drink = false) {

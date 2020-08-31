@@ -65,6 +65,31 @@ if(isset($_POST)) {
 		$req = $db->prepare($sql);
 		$req->execute();
 	}
+	if(isset($_POST["menu_of_the_day_entree_selecter"]) && $_POST["menu_of_the_day_entree_selecter"] != $_POST["base_motd_entree"]) {
+		$sql = "UPDATE `menu_of_the_day` SET `entrée`=\"" . $_POST["menu_of_the_day_entree_selecter"] ."\"";
+		$req = $db->query($sql);
+		$req->execute();
+	}
+	else if(isset($_POST["menu_of_the_day_plat_selecter"]) && $_POST["menu_of_the_day_plat_selecter"] != $_POST["base_motd_plat"]){
+		$sql = "UPDATE `menu_of_the_day` SET `plat`=\"" . $_POST["menu_of_the_day_plat_selecter"] ."\"";
+		$req = $db->query($sql);
+		$req->execute();
+	}
+	else if(isset($_POST["menu_of_the_day_dessert_selecter"]) && $_POST["menu_of_the_day_dessert_selecter"] != $_POST["base_motd_dessert"]){
+		$sql = "UPDATE `menu_of_the_day` SET `dessert`=\"" . $_POST["menu_of_the_day_dessert_selecter"] ."\"";
+		$req = $db->query($sql);
+		$req->execute();
+	}
+	else if(isset($_POST["menu_of_the_day_drink_selecter"]) && $_POST["menu_of_the_day_drink_selecter"] != $_POST["base_motd_drink"]){
+		$sql = "UPDATE `menu_of_the_day` SET `boisson`=\"" . $_POST["menu_of_the_day_drink_selecter"] ."\"";
+		$req = $db->query($sql);
+		$req->execute();
+	}
+	else if(isset($_POST["menu_of_the_day_price"]) && $_POST["menu_of_the_day_price"] != $_POST["base_motd_price"]){
+		$sql = "UPDATE `menu_of_the_day` SET `price`=\"" . $_POST["menu_of_the_day_price"] ."\"";
+		$req = $db->query($sql);
+		$req->execute();
+	}
 }
 header("location:admin.php");
 ?>
